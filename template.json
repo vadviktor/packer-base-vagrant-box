@@ -8,6 +8,7 @@
           "scripts": [
             "scripts/base.sh",
             "scripts/vagrant.sh",
+            "scripts/docker.sh",
             "scripts/virtualbox.sh",
             "scripts/cleanup.sh",
             "scripts/zerodisk.sh"
@@ -17,6 +18,7 @@
           "scripts": [
             "scripts/base.sh",
             "scripts/vagrant.sh",
+            "scripts/docker.sh",
             "scripts/vmware.sh",
             "scripts/cleanup.sh",
             "scripts/zerodisk.sh"
