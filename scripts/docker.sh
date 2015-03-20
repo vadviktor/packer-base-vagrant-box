@@ -11,15 +11,4 @@ sudo usermod -a -G docker vagrant
 apt-get update
 apt-get install -y curl apparmor cgroup-lite
 
-# add the docker gpg key
-curl https://get.docker.io/gpg | apt-key add -
-
-# Add the Docker repository to your apt sources list.
-echo deb https://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/docker.list
-
-# Update your sources
-apt-get update
-
-# Install. Confirm install.
-apt-get install -y lxc-docker
-
+curl -sSL https://get.docker.com/ubuntu/ | sh
