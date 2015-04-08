@@ -1,5 +1,3 @@
-sed -i -e 's/us\./ie\./g' /etc/apt/sources.list
-
 apt-get update
 apt-get -y upgrade
 apt-get -y install linux-headers-$(uname -r) build-essential acl
