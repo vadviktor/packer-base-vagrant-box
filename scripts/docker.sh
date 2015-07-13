@@ -7,8 +7,8 @@ sudo groupadd docker
 sudo usermod -a -G docker ubuntu
 sudo usermod -a -G docker vagrant
 
-# install curl
+# install wget
 apt-get update
-apt-get install -y curl apparmor cgroup-lite
+apt-get install -y wget apparmor cgroup-lite
 
-curl -sSL https://get.docker.com/ubuntu/ | sh
+wget -qO- https://get.docker.com/ | sh
