@@ -1,6 +1,10 @@
 apt-get update
 apt-get -y upgrade
-apt-get -y install linux-headers-$(uname -r) build-essential acl
+apt-get -y install linux-headers-$(uname -r) \
+                   build-essential \
+                   acl \
+                   curl \
+                   wget
 
 sed -i -e 's/noatime,/noatime,acl,/g' /etc/fstab
 
