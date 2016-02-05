@@ -4,7 +4,8 @@ apt-get -y install linux-headers-$(uname -r) \
                    build-essential \
                    acl \
                    curl \
-                   wget
+                   wget \
+				   cifs-utils
 
 sed -i -e 's/noatime,/noatime,acl,/g' /etc/fstab
 

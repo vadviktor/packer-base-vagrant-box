@@ -13,6 +13,16 @@
             "scripts/cleanup.sh",
             "scripts/zerodisk.sh"
           ]
+        },
+        "vmware-iso": {
+          "scripts": [
+            "scripts/base.sh",
+            "scripts/vagrant.sh",
+            "scripts/docker.sh",
+            "scripts/vmware.sh",
+            "scripts/cleanup.sh",
+            "scripts/zerodisk.sh"
+          ]
         }
       }
     }
@@ -23,6 +33,9 @@
       "override": {
         "virtualbox": {
           "output": "ubuntu-14-04-x64-virtualbox.box"
+        },
+        "vmware": {
+          "output": "ubuntu-14-04-x64-vmware.box"
         }
       }
     }
@@ -68,19 +81,54 @@
       "ssh_wait_timeout": "20m",
       "shutdown_command": "echo 'shutdown -P now' > /tmp/shutdown.sh; echo 'vagrant'|sudo -S sh '/tmp/shutdown.sh'",
       "vboxmanage": [
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--memory",
-          "512"
-        ],
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--cpus",
-          "1"
-        ]
+        [ "modifyvm", "{{.Name}}", "--memory", "512" ],
+        [ "modifyvm", "{{.Name}}", "--cpus", "1" ]
       ]
+    },
+    {
+      "type": "vmware-iso",
+      "boot_command": [
+        "<esc><wait>",
+        "<esc><wait>",
+        "<enter><wait>",
+        "/install/vmlinuz<wait>",
+        " auto<wait>",
+        " console-setup/ask_detect=false<wait>",
+        " console-setup/layoutcode=us<wait>",
+        " console-setup/modelcode=pc105<wait>",
+        " debconf/frontend=noninteractive<wait>",
+        " debian-installer=en_US<wait>",
+        " fb=false<wait>",
+        " initrd=/install/initrd.gz<wait>",
+        " kbd-chooser/method=us<wait>",
+        " keyboard-configuration/layout=USA<wait>",
+        " keyboard-configuration/variant=USA<wait>",
+        " locale=en_US<wait>",
+        " netcfg/get_hostname=ubuntu-1404<wait>",
+        " netcfg/get_domain=vagrantup.com<wait>",
+        " noapic<wait>",
+        " preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg<wait>",
+        " -- <wait>",
+        "<enter><wait>"
+      ],
+      "boot_wait": "5s",
+      "disk_size": 51200,
+      "guest_os_type": "linux",
+      "http_directory": "http",
+      "iso_checksum": "a3b345908a826e262f4ea1afeb357fd09ec0558cf34e6c9112cead4bb55ccdfb",
+      "iso_checksum_type": "sha256",
+      "iso_url": "http://releases.ubuntu.com/trusty/ubuntu-14.04.3-server-amd64.iso",
+      "ssh_username": "vagrant",
+      "ssh_password": "vagrant",
+      "ssh_port": 22,
+      "ssh_wait_timeout": "20m",
+      "shutdown_command": "echo 'shutdown -P now' > /tmp/shutdown.sh; echo 'vagrant'|sudo -S sh '/tmp/shutdown.sh'",
+      "tools_upload_flavor": "linux",
+      "vmx_data": {
+        "memsize": "512",
+        "numvcpus": "1",
+        "cpuid.coresPerSocket": "1"
+      }
     }
   ]
 }
