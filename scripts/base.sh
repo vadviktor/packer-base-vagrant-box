@@ -5,7 +5,7 @@ apt-get -y install linux-headers-$(uname -r) \
                    acl \
                    curl \
                    wget \
-				   cifs-utils
+                   cifs-utils
 
 sed -i -e 's/noatime,/noatime,acl,/g' /etc/fstab
 
