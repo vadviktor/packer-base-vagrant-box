@@ -1,3 +1,5 @@
+#!/bin/bash
+
 apt-get -y install dkms
 
 mkdir -p /mnt/cdrom

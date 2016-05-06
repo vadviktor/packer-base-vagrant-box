@@ -1,8 +1,10 @@
+#!/bin/bash
+
 apt-get update
 apt-get -y upgrade
-apt-get -y install linux-headers-$(uname -r) \
-                   build-essential \
-                   acl \
+apt-get -y install build-essential \
+                   linux-headers-virtual-lts-xenial \
+                   linux-image-extra-virtual-lts-xenialacl \
                    curl \
                    wget \
                    cifs-utils
