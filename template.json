@@ -58,6 +58,7 @@
       "disk_size": 51200,
       "guest_os_type": "Ubuntu_64",
       "guest_additions_mode": "upload",
+      "hard_drive_interface": "scsi",
       "http_directory": "http",
       "iso_checksum": "07e4bb5569814eab41fafac882ba127893e3ff0bdb7ec931c9b2d040e3e94e7a",
       "iso_checksum_type": "sha256",
