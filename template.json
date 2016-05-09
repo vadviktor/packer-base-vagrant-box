@@ -62,7 +62,7 @@
       "disk_size": 51200,
       "guest_os_type": "Ubuntu_64",
       "guest_additions_mode": "upload",
-      "hard_drive_interface": "scsi",
+      "hard_drive_interface": "sata",
       "http_directory": "http",
       "iso_checksum": "{{user `iso_checksum`}}",
       "iso_checksum_type": "sha256",
