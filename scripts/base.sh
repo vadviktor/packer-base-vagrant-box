@@ -7,7 +7,8 @@ apt-get -y install build-essential \
                    linux-image-extra-virtual-lts-xenialacl \
                    curl \
                    wget \
-                   cifs-utils
+                   cifs-utils \
+                   acl
 
 sed -i -e 's/noatime,/noatime,acl,/g' /etc/fstab
 
