@@ -4,7 +4,7 @@ apt-get update
 apt-get -y upgrade
 apt-get -y install build-essential \
                    linux-headers-virtual-lts-xenial \
-                   linux-image-extra-virtual-lts-xenialacl \
+                   linux-image-extra-virtual-lts-xenial \
                    curl \
                    wget \
                    cifs-utils \
