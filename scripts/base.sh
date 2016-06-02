@@ -1,8 +1,8 @@
 #!/bin/bash
 
-apt-get update
-apt-get -y upgrade
-apt-get -y install build-essential \
+apt-get update && \
+apt-get upgrade -y && \
+apt-get install -y build-essential \
                    linux-headers-virtual-lts-xenial \
                    linux-image-extra-virtual-lts-xenial \
                    curl \
