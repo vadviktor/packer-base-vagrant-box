@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt-get -y install dkms 
+apt-get install -y dkms 
 
 mkdir -p /mnt/cdrom
 mount -o loop ~/VBoxGuestAdditions.iso /mnt/cdrom
