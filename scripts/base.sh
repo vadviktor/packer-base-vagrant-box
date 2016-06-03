@@ -3,8 +3,8 @@
 apt-get update && \
 apt-get upgrade -y && \
 apt-get install -y build-essential \
-                   linux-headers-virtual-lts-xenial \
-                   linux-image-extra-virtual-lts-xenial \
+                   linux-headers-generic-lts-trusty \
+                   linux-image-extra-$(uname -r) \
                    curl \
                    wget \
                    cifs-utils \
