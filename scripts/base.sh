@@ -1,14 +1,14 @@
 #!/bin/bash
 
-apt-get update && \
-apt-get upgrade -y && \
-apt-get install -y build-essential \
-                   linux-headers-generic-lts-trusty \
-                   linux-image-extra-$(uname -r) \
-                   curl \
-                   wget \
-                   cifs-utils \
-                   acl
+aptitude update && \
+aptitude upgrade -y && \
+aptitude install -y build-essential \
+                    linux-generic \
+                    linux-image-extra-virtual \
+                    curl \
+                    wget \
+                    cifs-utils \
+                    acl
 
 sed -i -e 's/noatime,/noatime,acl,/g' /etc/fstab
 

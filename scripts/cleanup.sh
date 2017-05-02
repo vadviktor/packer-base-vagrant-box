@@ -1,7 +1,6 @@
 #!/bin/bash
 
-apt-get autoremove -y && \
-apt-get clean
+aptitude autoclean -y
 
 echo "cleaning up dhcp leases"
 rm -rf /var/lib/dhcp/*
