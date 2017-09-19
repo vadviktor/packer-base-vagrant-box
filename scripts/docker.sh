@@ -7,16 +7,19 @@ sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="cgroup_enable=memory swapacc
 # install mandatory packages
 aptitude update && \
 aptitude install -y apt-transport-https \
-                    ca-certificates
-apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
-echo 'deb https://apt.dockerproject.org/repo ubuntu-trusty main' > /etc/apt/sources.list.d/docker.list
-aptitude update && \
-aptitude purge lxc-docker && \
-aptitude install -y docker-engine \
-                    apparmor
+                    ca-certificates \
+                    curl \
+                    software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+apt-key fingerprint 0EBFCD88
 
-# enable Google DNS servers and lock in the default bridge ip
-sed -i 's*#DOCKER_OPTS="--dns 8.8.8.8 --dns 8.8.4.4"*DOCKER_OPTS="--bip=172.17.42.1/16 --dns 8.8.8.8 --dns 8.8.4.4 -H unix:///var/run/docker.sock -H tcp://0.0.0.0:4242"*g' /etc/default/docker
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+
+aptitude update && \
+aptitude install -y docker-ce
 
 # add docker group and add vagrant to it
 groupadd docker
